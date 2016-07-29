@@ -1,33 +1,12 @@
-Material Calculator
+Material Wrongulator
 ===================
 
-A backport of the recent redesign of the default calculator app shipped with Android Lollipop. Most of the material design goodness has been ported to work on all versions of the platform back to Android 2.3.3 (API Level 10). The source code was forked from the AOSP platform package.
-
-Features that couldn't be backported include:
-
-* Custom theme colors. Whatever is allowed by the the v7 appcompat library has been implemented
-* Ripple drawables
-
 ![Material Calculator](art/hero.png)
-
-Demo
-====
-
-The gif was recorded on a Android 4.4 KitKat device (API Level 19).
-
-![](art/hero.gif)
-
-Sample Application
-==================
-The application has been published onto Google Play for easy access:
-
-[![Get it on Google Play](http://www.android.com/images/brand/get_it_on_play_logo_small.png)](https://play.google.com/store/apps/details?id=com.rahul.material.calculator)
-
 
 How to use this source code
 ===========================
 
-The material-calculator project can be opened in Android Studio.
+The material-wrongulator project can be opened in Android Studio.
 
 The folder structure is similar to the one in AOSP with the addition of the local gradle wrapper (gradlew). 
 
