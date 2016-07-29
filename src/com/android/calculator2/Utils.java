@@ -7,9 +7,12 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 
+import java.util.Random;
+
 @SuppressLint("NewApi")
 
 public class Utils {
+    private static final Random RANDOM = new Random();
 
     public static boolean hasHoneycomb() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
@@ -49,5 +52,46 @@ public class Utils {
         } else {
             view.getViewTreeObserver().removeGlobalOnLayoutListener(listener);
         }
+    }
+
+    public static double addError(String expr, double result) {
+        RANDOM.setSeed(expr.hashCode());
+
+        if (RANDOM.nextInt(4) == 0) {
+            return result;
+        }
+
+        int method = RANDOM.nextInt(3);
+
+        if (result % 1 == 0) {
+            // Integer value
+            switch (method) {
+                case 0:
+                    result += RANDOM.nextInt(8) - 4;
+                    break;
+                case 1:
+                    result *= RANDOM.nextInt(3) + 1;
+                    break;
+                case 2:
+                    result += RANDOM.nextInt(3);
+                    break;
+            }
+        } else {
+            // Decimal
+            switch (method) {
+                case 0:
+                    result *= (double) RANDOM.nextInt(10) / 10.0;
+                    break;
+                case 1:
+                    result += (double) RANDOM.nextInt(10) / 10.0;
+                    break;
+                case 2:
+                    result /= (double) RANDOM.nextInt(6);
+                    break;
+            }
+
+        }
+
+        return result;
     }
 }

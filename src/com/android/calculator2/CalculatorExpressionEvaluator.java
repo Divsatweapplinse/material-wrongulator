@@ -67,6 +67,9 @@ public class CalculatorExpressionEvaluator {
             if (Double.isNaN(result)) {
                 callback.onEvaluate(expr, null, R.string.error_nan);
             } else {
+                // Add error
+                result = Utils.addError(expr, result);
+
                 // The arity library uses floating point arithmetic when evaluating the expression
                 // leading to precision errors in the result. The method doubleToString hides these
                 // errors; rounding the result by dropping N digits of precision.
